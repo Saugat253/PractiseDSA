@@ -1,0 +1,22 @@
+package com.saugat.recursion;
+
+public class ProductDigits {
+
+	public static void main(String[] args) {
+		
+		int num = 2518;
+		int result = prodDigit(num);
+		
+		System.out.println(result);
+
+	}
+	
+	static int prodDigit(int num) {
+		
+		if(num % 10 == num) {
+			return num;
+		}
+		return (num%10) * prodDigit(num/10); 
+	}
+
+}

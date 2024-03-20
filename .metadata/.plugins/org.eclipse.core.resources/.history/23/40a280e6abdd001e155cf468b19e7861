@@ -1,0 +1,20 @@
+package com.saugat.recursion.pattern;
+
+public class Pattern {
+
+	public static void main(String[] args) {
+		
+		traingle(4, 0);
+
+	}
+	
+	static void triangle(int row, int col) {
+		while(row > 0) {
+			if(row < col) {
+				System.out.println("* ");
+			}
+		}
+		return;
+	}
+
+}

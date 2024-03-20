@@ -1,0 +1,54 @@
+package com.saugat.recursion;
+
+import java.util.ArrayList;
+
+public class LinearSearchUsingRecursion {
+
+	public static void main(String[] args) {
+		// find the target element in an array using recursion in linear search
+		
+		int[] arr = {1, 3, 7, 10, 13, 15, 15, 17, 25};
+		int target = 25;
+		
+		boolean result = doesTargetExists(arr, target, 0);
+		int index = findTargetIndex(arr, target, 0);
+		ArrayList<Integer> multipleIndex = multipleTargetIndex(arr, target, 0, new ArrayList<Integer>());
+		
+		System.out.println(result);
+        System.out.println(index);
+        System.out.println(multipleIndex.toArray());
+	}
+	
+	static boolean doesTargetExists(int[] arr, int target, int index) {
+		if(index == arr.length - 1) {
+			return false;
+		}
+		return target == arr[index] || doesTargetExists(arr, target, index + 1);
+	}
+	
+	static int findTargetIndex(int[] arr, int target, int index) {
+		
+		while(index <= arr.length - 1) {
+			if(target == arr[index]) {
+				return index;
+			}
+			else {
+				return findTargetIndex(arr, target, index + 1);
+			}
+		}
+		return -1;
+	}
+	
+	static ArrayList<Integer> multipleTargetIndex(int[] arr, int target, int index, ArrayList<Integer> list){
+		
+		while(index <= arr.length - 1) {
+			if(target == arr[index]) {
+				list.add(index);
+			}
+			return multipleTargetIndex(arr, target, index + 1, list);
+		}
+		
+		return list;
+	}
+
+}

@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+E:\Courses Projects documentations\Full Stack Java Development Career\Java and DSA By Kunal\Practice\.metadata\.plugins\org.eclipse.jdt.core
+1739001567.index
+1865797976.index
+3675602412.index

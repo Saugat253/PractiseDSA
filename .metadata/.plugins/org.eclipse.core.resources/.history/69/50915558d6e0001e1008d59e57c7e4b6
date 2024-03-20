@@ -1,0 +1,27 @@
+package com.saugat.recursion.strings;
+
+public class SkipGivenChar {
+
+	public static void main(String[] args) {
+		
+		String word = "abbshabnjkteamolxaqpdcaa";
+		skip("",word);
+
+	}
+	
+	static void skip(String result, String word) {
+		
+		if(word.isEmpty()) {
+			System.out.println(result);
+		}
+		
+		char ch = word.charAt(0);
+		if(ch == 'a' || ch == 'A') {
+			skip(result, word.substring(1));
+		}
+		else {
+			skip(result+ch, word.substring(1));
+		}
+	}
+
+}

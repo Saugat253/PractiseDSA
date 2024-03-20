@@ -1,0 +1,45 @@
+package com.saugat.recursion.strings;
+
+import java.util.ArrayList;
+
+public class SubSetPattern {
+
+	public static void main(String[] args) {
+		// generate all the subset possibility
+		
+		String word = "abc";
+		ArrayList<String> subSets = new ArrayList<String>(); 
+		generateSubSet("", word);
+		subSets =generateSubSet2("", word, subSets);
+       System.out.println(subSets);
+	}
+	
+	static void generateSubSet(String subset, String word){
+	
+		if(word.isEmpty()) {
+			System.out.println(subset);
+			return ;
+		}
+		
+		char ch = word.charAt(0);
+		generateSubSet(subset+ch, word.substring(1));
+		generateSubSet(subset, word.substring(1));
+		
+	}
+	
+	static ArrayList<String> generateSubSet2(String subset, String word, ArrayList<String> subsets){
+		
+		if(word.isEmpty()) {
+			subsets.add(subset);
+			return subsets;
+		}
+		
+		char ch = word.charAt(0);
+		ArrayList<String> leftSide = generateSubSet2(subset, word.substring(1), subsets);
+		ArrayList<String> rightSide = generateSubSet2(subset+ch, word.substring(1), subsets);
+		leftSide.addAll(rightSide);
+		return leftSide;
+		
+	}
+
+}

@@ -1,0 +1,44 @@
+package com.saugat.binarySearch;
+
+public class SearchInRotatedSortedArray {
+
+	public static void main(String[] args) {
+		// in order to search for the target element, first we need to find Pivot i.e largest element in rotated sorted array.
+		int[] arr = {14, 17, 19, 20, 23, 27, 32, 35, 36, 41, 0, 1, 2, 4, 7, 9, 13};
+		int pivot = findPivot(arr);
+		System.out.println(pivot);
+
+	}
+	
+	static int findPivot(int[] arr) {
+		int start = 0;
+		int end = arr.length - 1;
+		
+		while(start <= end) {
+			int mid = (start + end)/2;
+			// in order to find pivot we need to deal with certain cases
+			
+			// case 1
+			if(mid < end && arr[mid] > arr[mid + 1]) {
+				return mid;
+			}
+			
+			// case 2
+			if(mid > start && arr[mid] < arr[mid - 1]) {
+				return mid-1;
+			}
+			
+			// case 3
+			if(arr[start] < arr[mid]) {
+				start = mid + 1;
+			}
+			else if(arr[start] > arr[mid]) {
+				end = mid - 1;
+			}
+		}
+		
+		
+		return -1;
+	}
+
+}

@@ -1,0 +1,15 @@
+package com.saugat.recursion.strings;
+
+public class SkipGivenString {
+
+	public static void main(String[] args) {
+		// Skip the word apple if exists
+		
+		String word = "Saugatapplebgha";
+		
+		String result = skipApple(word);
+		System.out.println(result);
+
+	}
+
+}
